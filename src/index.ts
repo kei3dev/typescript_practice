@@ -1,5 +1,6 @@
-import World from './world'
+import { unknownSample, anySample, notExistSample, primitiveSample } from './basic'
 
-const root = document.getElementById('root')
-const world = new World('Hello World!!!')
-world.sayHello(root)
+unknownSample()
+anySample()
+notExistSample()
+primitiveSample()
