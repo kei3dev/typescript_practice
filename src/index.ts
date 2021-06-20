@@ -1,3 +1,4 @@
-import { primitiveSample } from "./basic";
+import { notExistSample, primitiveSample } from './basic'
 
+notExistSample()
 primitiveSample()
