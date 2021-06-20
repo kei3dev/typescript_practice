@@ -1,5 +1,8 @@
-import World from './world'
+import { logMessage } from './function/basic'
+import { isUserSignedIn, isUserSignedIn2 } from './function/parameters'
 
-const root = document.getElementById('root')
-const world = new World('Hello World!!!')
-world.sayHello(root)
+logMessage('test')
+isUserSignedIn('ABC', 'hoge')
+isUserSignedIn('DEF', 'fuga')
+isUserSignedIn('GHI')
+isUserSignedIn2('ABC')
