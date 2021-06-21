@@ -15,4 +15,21 @@ export default function objectSample() {
     name: 'United States of America',
   }
   console.log(country)
+
+  // オプショナルとreadonly
+  const human: {
+    age: number
+    lastName: string
+    readonly firstName: string
+    gender?: string
+  } = {
+    age: 33,
+    lastName: 'Yamada',
+    firstName: 'Tarou',
+  }
+  human.gender = 'male'
+  human.lastName = 'Sato'
+  // test.firstName = 'Jiro'
+
+  console.log(human)
 }
