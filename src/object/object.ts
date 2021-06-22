@@ -32,4 +32,17 @@ export default function objectSample() {
   // test.firstName = 'Jiro'
 
   console.log(human)
+
+  // インデックスシグネチャ
+  const capitals: {
+    [countryName: string]: string
+  } = {
+    Japan: 'Tokyo',
+    Korea: 'Seoul',
+  }
+
+  capitals.China = 'Beijing'
+  capitals.Canada = 'Ottawa'
+
+  console.log(capitals)
 }
