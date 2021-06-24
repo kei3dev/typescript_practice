@@ -1,4 +1,5 @@
 export default function arraySample() {
+  // シンプルな配列の型定義
   const colors: string[] = ['red', 'blue']
   colors.push('yellow')
   // colors.push(123)
@@ -14,4 +15,16 @@ export default function arraySample() {
   ids.push(456)
   // ids.push(true)
   console.log(ids)
+
+  // 配列の型推論
+  const generateSomeArray = () => {
+    const _someArray = [] // any[]
+    _someArray.push(123) // number[]
+    _someArray.push('abc') // (string | number)[]
+    return _someArray
+  }
+  const someArray = generateSomeArray()
+  someArray.push(456)
+  // someArray.push(true)
+  console.log(someArray)
 }
