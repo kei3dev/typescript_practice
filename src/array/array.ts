@@ -27,4 +27,10 @@ export default function arraySample() {
   someArray.push(456)
   // someArray.push(true)
   console.log(someArray)
+
+  // イミュータブルな配列を作る
+  const commands: readonly string[] = ['git add', 'git commit', 'git push']
+  // commands.push('git fetch')
+  // commands[2] = 'git pull'
+  console.log(commands)
 }
