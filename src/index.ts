@@ -1,5 +1,3 @@
-import objectSample from './object/object'
-import typeAliasSample from './object/alias'
+import arraySample from './array/array'
 
-objectSample()
-typeAliasSample()
+arraySample()
