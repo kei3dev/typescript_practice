@@ -1,5 +1,5 @@
-import arraySample from './array/array'
-import tupleSample from './array/tuple'
+import genericsBasicSample from './generics/basic'
+import genericsAdvancedSample from './generics/advanced'
 
-arraySample()
-tupleSample()
+genericsBasicSample()
+genericsAdvancedSample()
