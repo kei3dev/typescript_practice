@@ -1,2 +1,2 @@
-import promiseSample from './asynchronous/promise'
-promiseSample()
+import asyncAwaitSample from './asynchronous/asyncAwait'
+asyncAwaitSample()
