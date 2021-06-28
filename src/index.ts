@@ -1,5 +1,2 @@
-import genericsBasicSample from './generics/basic'
-import genericsAdvancedSample from './generics/advanced'
-
-genericsBasicSample()
-genericsAdvancedSample()
+import callbackSample from './asynchronous/callback'
+callbackSample()
