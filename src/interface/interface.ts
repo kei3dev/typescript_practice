@@ -81,5 +81,5 @@ class Comic implements Book {
     return this.title + 'が発売されたのは' + this.publishYear + '年です。'
   }
 }
-const popularComic = new Comic(200, '鬼滅の刃', 2016)
+const popularComic = new Comic(200, '鬼滅の刃', '2016')
 console.log(popularComic.getPublishYear())
