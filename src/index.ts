@@ -1,2 +1,2 @@
-import callbackSample from './asynchronous/callback'
-callbackSample()
+import promiseSample from './asynchronous/promise'
+promiseSample()
