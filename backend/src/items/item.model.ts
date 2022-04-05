@@ -3,7 +3,5 @@ export type Item = {
   name: string
   price: number
   description: string
-  status: ItemStatus
+  status: 'ON_SALE' | 'SOLD_OUT'
 }
-
-type ItemStatus = 'ON_SALE' | 'SOLD_OUT'
