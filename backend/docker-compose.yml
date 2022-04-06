@@ -3,10 +3,6 @@ services:
   db:
     image: mysql
     platform: linux/amd64
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+    env_file: .env
     ports:
       - "3306:3306"
