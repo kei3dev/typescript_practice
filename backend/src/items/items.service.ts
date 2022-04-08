@@ -7,14 +7,12 @@ import { CreateItemDto } from './dto/create-item.dto'
 export class ItemsService {
   constructor(private prisma: PrismaService) {}
 
-  private items: Item[] = []
-
-  findAll(): Item[] {
-    return this.items
+  async findAll(): Promise<Item[]> {
+    return this.prisma.item.findMany()
   }
 
-  findById(id: string): Item {
-    const found = this.items.find((item) => item.id === id)
+  async findById(where: Prisma.ItemWhereUniqueInput): Promise<Item> {
+    const found = this.prisma.item.findUnique({ where })
     if (!found) {
       throw new NotFoundException()
     }
@@ -32,13 +30,14 @@ export class ItemsService {
     return this.prisma.item.create({ data })
   }
 
-  updateStatus(id: string): Item {
-    const item = this.findById(id)
-    item.status = 'SOLD_OUT'
-    return item
+  async updateStatus(where: Prisma.ItemWhereUniqueInput): Promise<Item> {
+    return this.prisma.item.update({
+      where,
+      data: { status: 'SOLD_OUT' },
+    })
   }
 
-  delete(id: string): void {
-    this.items = this.items.filter((item) => item.id !== id)
+  async delete(where: Prisma.ItemWhereUniqueInput): Promise<Item> {
+    return this.prisma.item.delete({ where })
   }
 }
