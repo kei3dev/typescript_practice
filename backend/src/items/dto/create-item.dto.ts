@@ -1,5 +1,13 @@
+import { ItemStatus } from '@prisma/client'
 import { Type } from 'class-transformer'
-import { IsInt, IsNotEmpty, IsString, MaxLength, Min } from 'class-validator'
+import {
+  IsEnum,
+  IsInt,
+  IsNotEmpty,
+  IsString,
+  MaxLength,
+  Min,
+} from 'class-validator'
 
 export class CreateItemDto {
   @IsString()
@@ -15,4 +23,7 @@ export class CreateItemDto {
   @IsString()
   @IsNotEmpty()
   description: string
+
+  @IsEnum(ItemStatus)
+  status: ItemStatus
 }
