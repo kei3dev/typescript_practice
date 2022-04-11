@@ -7,6 +7,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id         String     @id @default(uuid())
+  name       String     @unique
+  password   String
+  status     UserStatus
+  created_at DateTime   @default(dbgenerated("NOW()")) @db.Timestamp(0)
+  updated_at DateTime   @default(dbgenerated("NOW() ON UPDATE CURRENT_TIMESTAMP")) @db.Timestamp(0)
+
+  @@map("users")
+}
+
 model Item {
   id          String     @id @default(uuid())
   name        String
@@ -17,6 +28,11 @@ model Item {
   updated_at  DateTime   @default(dbgenerated("NOW() ON UPDATE CURRENT_TIMESTAMP")) @db.Timestamp(0)
 
   @@map("items")
+}
+
+enum UserStatus {
+  FREE
+  PREMIUM
 }
 
 enum ItemStatus {
