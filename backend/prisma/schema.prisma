@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String     @id @default(uuid())
+  name       String     @unique
+  password   String
+  status     UserStatus
+  created_at DateTime   @default(dbgenerated("NOW()")) @db.Timestamp(0)
+  updated_at DateTime   @default(dbgenerated("NOW() ON UPDATE CURRENT_TIMESTAMP")) @db.Timestamp(0)
+
+  @@map("users")
+}
+
+model Item {
+  id          String     @id @default(uuid())
+  name        String
+  price       Int
+  description String
+  status      ItemStatus
+  created_at  DateTime   @default(dbgenerated("NOW()")) @db.Timestamp(0)
+  updated_at  DateTime   @default(dbgenerated("NOW() ON UPDATE CURRENT_TIMESTAMP")) @db.Timestamp(0)
+
+  @@map("items")
+}
+
+enum UserStatus {
+  FREE
+  PREMIUM
+}
+
+enum ItemStatus {
+  ON_SALE
+  SOLD_OUT
+}
