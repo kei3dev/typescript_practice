@@ -1,4 +1,4 @@
-### Hands-on basic usage
+## Hands-on basic usage
 
 - Project with Next.js and TypeScript
 - Style with TailwindCSS
