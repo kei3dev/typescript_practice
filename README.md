@@ -1,2 +1,2 @@
 ## typescript-practice
-Practice repository for TypeScript.
+Practice repository for TypeScript
