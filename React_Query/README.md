@@ -1,3 +1,3 @@
 ## React Query
 
-React Query practice repository.
+For practicing React Query
