@@ -1,15 +1,15 @@
-import { forwardRef, PropsWithoutRef, ComponentPropsWithoutRef } from "react"
-import { useFormContext } from "react-hook-form"
+import { forwardRef, PropsWithoutRef, ComponentPropsWithoutRef } from 'react'
+import { useFormContext } from 'react-hook-form'
 
-export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
+export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElements['input']> {
   /** Field name. */
   name: string
   /** Field label. */
   label: string
   /** Field type. Doesn't include radio buttons and checkboxes */
-  type?: "text" | "password" | "email" | "number"
-  outerProps?: PropsWithoutRef<JSX.IntrinsicElements["div"]>
-  labelProps?: ComponentPropsWithoutRef<"label">
+  type?: 'text' | 'password' | 'email' | 'number'
+  outerProps?: PropsWithoutRef<JSX.IntrinsicElements['div']>
+  labelProps?: ComponentPropsWithoutRef<'label'>
 }
 
 export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldProps>(
@@ -19,7 +19,7 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
       formState: { isSubmitting, errors },
     } = useFormContext()
     const error = Array.isArray(errors[name])
-      ? errors[name].join(", ")
+      ? errors[name].join(', ')
       : errors[name]?.message || errors[name]
 
     return (
@@ -30,7 +30,7 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
         </label>
 
         {error && (
-          <div role="alert" style={{ color: "red" }}>
+          <div role="alert" style={{ color: 'red' }}>
             {error}
           </div>
         )}
