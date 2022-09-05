@@ -21,6 +21,7 @@ const NewQuestionPage = () => {
         //         then import and use it here
         // schema={CreateQuestion}
         // initialValues={{}}
+        initialValues={{ choices: [] }}
         onSubmit={async (values) => {
           try {
             const question = await createQuestionMutation(values)
