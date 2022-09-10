@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  db:
+    image: mysql
+    platform: linux/amd64
+    container_name: local-mysql
+    env_file: .env.local
+    ports:
+      - 3306:3306
