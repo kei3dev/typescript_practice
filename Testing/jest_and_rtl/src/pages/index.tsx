@@ -1,12 +1,11 @@
 import type { NextPage } from 'next'
 
-import Sample from '@/components/Sample'
+import Button from '@/components/Button'
 
 const HomePage: NextPage = () => {
   return (
     <>
-      <Sample />
-      <p>Home Page</p>
+      <Button />
     </>
   )
 }
