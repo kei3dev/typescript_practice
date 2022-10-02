@@ -1,8 +1,11 @@
+import { Suspense } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { ErrorBoundary } from 'react-error-boundary'
 
-import PostList from '@/components/PostList'
 import LayoutCenter from '@/components/LayoutCenter'
+import PostList from '@/components/PostList'
+import Spinner from '@/components/Spinner'
 
 const HomePage: NextPage = () => {
   return (
@@ -13,7 +16,11 @@ const HomePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LayoutCenter>
-        <PostList />
+        <ErrorBoundary fallback={<p className="text-3xl text-red-600">Error!</p>}>
+          <Suspense fallback={<Spinner />}>
+            <PostList />
+          </Suspense>
+        </ErrorBoundary>
       </LayoutCenter>
     </>
   )
