@@ -16,7 +16,11 @@ const HomePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LayoutCenter>
-        <ErrorBoundary fallback={<p className="text-3xl text-red-600">Error!</p>}>
+        <ErrorBoundary
+          fallbackRender={({ error }) => (
+            <p className="text-3xl text-red-600">Error! {error.message}</p>
+          )}
+        >
           <Suspense fallback={<Spinner />}>
             <PostList />
           </Suspense>
