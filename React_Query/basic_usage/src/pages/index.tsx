@@ -6,6 +6,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 import LayoutCenter from '@/components/LayoutCenter'
 import PostList from '@/components/PostList'
 import Spinner from '@/components/Spinner'
+import TodoList from '@/components/TodoList'
 
 const HomePage: NextPage = () => {
   return (
@@ -16,15 +17,30 @@ const HomePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LayoutCenter>
-        <ErrorBoundary
-          fallbackRender={({ error }) => (
-            <p className="text-3xl text-red-600">Error! {error.message}</p>
-          )}
-        >
-          <Suspense fallback={<Spinner />}>
-            <PostList />
-          </Suspense>
-        </ErrorBoundary>
+        <div className="mb-5 flex w-1/4 flex-col items-center justify-center border py-6 text-center">
+          <h1 className="mb-1 text-xl font-bold">POST</h1>
+          <ErrorBoundary
+            fallbackRender={({ error }) => (
+              <p className="text-3xl text-red-600">Error! {error.message}</p>
+            )}
+          >
+            <Suspense fallback={<Spinner />}>
+              <PostList />
+            </Suspense>
+          </ErrorBoundary>
+        </div>
+        <div className="flex w-1/4 flex-col items-center justify-center border py-4 text-center">
+          <h1 className="mb-1 text-xl font-bold">TODO</h1>
+          <ErrorBoundary
+            fallbackRender={({ error }) => (
+              <p className="text-3xl text-red-600">Error! {error.message}</p>
+            )}
+          >
+            <Suspense fallback={<Spinner />}>
+              <TodoList />
+            </Suspense>
+          </ErrorBoundary>
+        </div>
       </LayoutCenter>
     </>
   )
