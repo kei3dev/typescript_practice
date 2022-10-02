@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 
-import { Post } from '@/types'
+import type { Post } from '@/types'
 
 export const useQueryPosts = () => {
   const getPosts = async () => {
