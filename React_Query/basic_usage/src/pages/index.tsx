@@ -1,5 +1,4 @@
 import { Suspense, useState, useTransition } from 'react'
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import { ErrorBoundary } from 'react-error-boundary'
 
@@ -8,6 +7,8 @@ import PostList from '@/components/PostList'
 import Spinner from '@/components/Spinner'
 import TodoList from '@/components/TodoList'
 import TabList from '@/components/TabList'
+
+import type { NextPage } from 'next'
 import type { Tabs } from '@/types'
 
 const HomePage: NextPage = () => {

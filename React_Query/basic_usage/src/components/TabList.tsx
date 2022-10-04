@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { Tabs } from '@/types'
+import type { Tabs } from '@/types'
 
 type Props = {
   select: Tabs
