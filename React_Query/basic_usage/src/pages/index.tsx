@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, useState, useTransition } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { ErrorBoundary } from 'react-error-boundary'
@@ -7,8 +7,19 @@ import LayoutCenter from '@/components/LayoutCenter'
 import PostList from '@/components/PostList'
 import Spinner from '@/components/Spinner'
 import TodoList from '@/components/TodoList'
+import TabList from '@/components/TabList'
+import type { Tabs } from '@/types'
 
 const HomePage: NextPage = () => {
+  const [selectedTab, setSelectedTab] = useState<Tabs>('todo')
+  const [isPending, startTransition] = useTransition()
+
+  const onClickTabButton = (tab: Tabs) => {
+    startTransition(() => {
+      setSelectedTab(tab)
+    })
+  }
+
   return (
     <>
       <Head>
@@ -17,27 +28,22 @@ const HomePage: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <LayoutCenter>
-        <div className="mb-5 flex w-1/4 flex-col items-center justify-center border py-6 text-center">
-          <h1 className="mb-1 text-xl font-bold">POST</h1>
-          <ErrorBoundary
-            fallbackRender={({ error }) => (
-              <p className="text-3xl text-red-600">Error! {error.message}</p>
-            )}
-          >
-            <Suspense fallback={<Spinner />}>
-              <PostList />
-            </Suspense>
-          </ErrorBoundary>
+        <div className="mb-2">
+          <TabList select={selectedTab} isPending={isPending} onClick={onClickTabButton} />
         </div>
-        <div className="flex w-1/4 flex-col items-center justify-center border py-4 text-center">
-          <h1 className="mb-1 text-xl font-bold">TODO</h1>
+        <div
+          className={`mb-5 flex w-[600px] flex-col items-center justify-center border py-6 text-center ${
+            isPending ? 'text-[rgba(0,0,0,.6)]' : ''
+          }`}
+        >
+          <h1 className="mb-1 text-xl font-bold">{selectedTab === 'todo' ? 'TODO' : 'POST'}</h1>
           <ErrorBoundary
             fallbackRender={({ error }) => (
               <p className="text-3xl text-red-600">Error! {error.message}</p>
             )}
           >
             <Suspense fallback={<Spinner />}>
-              <TodoList />
+              {selectedTab === 'todo' ? <TodoList /> : <PostList />}
             </Suspense>
           </ErrorBoundary>
         </div>
