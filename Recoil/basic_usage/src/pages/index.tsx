@@ -1,11 +1,14 @@
 import type { NextPage } from 'next'
 
+import InputTask from '@/components/InputTask'
 import Layout from '@/components/Layout'
+import TaskList from '@/components/TaskList'
 
 const HomePage: NextPage = () => {
   return (
     <Layout>
-      <p className="text-red-600">テスト</p>
+      <InputTask />
+      <TaskList />
     </Layout>
   )
 }
