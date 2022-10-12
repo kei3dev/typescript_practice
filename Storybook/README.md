@@ -1,3 +1,3 @@
-## Recoil
+## Storybook
 
 For practicing Storybook
