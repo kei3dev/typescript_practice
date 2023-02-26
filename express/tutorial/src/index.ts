@@ -6,6 +6,8 @@ app.get('/', (_req: Request, res: Response) => {
   res.send('Hello Express')
 })
 
+app.use('/user', userRouter)
+
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => console.log(`Server run at port ${PORT}`))
