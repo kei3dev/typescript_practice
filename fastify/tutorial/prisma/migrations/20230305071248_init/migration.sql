@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
-    "emain" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
     "name" TEXT,
     "password" TEXT NOT NULL,
     "salt" TEXT NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE "Product" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_emain_key" ON "User"("emain");
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- AddForeignKey
 ALTER TABLE "Product" ADD CONSTRAINT "Product_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
