@@ -2,7 +2,7 @@ import { hashPassword } from '../../utils/hash'
 import prisma from '../../utils/prisma'
 import { CreateUserInput } from './user.schema'
 
-const createUser = async (input: CreateUserInput) => {
+export const createUser = async (input: CreateUserInput) => {
   const { password, ...rest } = input
 
   const { hash, salt } = hashPassword(password)
