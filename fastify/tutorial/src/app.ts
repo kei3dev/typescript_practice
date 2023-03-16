@@ -1,5 +1,8 @@
 import fastify from 'fastify'
 
+import { userSchemas } from './modules/user/user.schema'
+import userRoutes from './modules/user/user.route'
+
 const server = fastify()
 
 server.get('/', async (req, res) => {
@@ -7,6 +10,10 @@ server.get('/', async (req, res) => {
 })
 
 const main = async () => {
+  for (const schema of userSchemas) {
+    server.addSchema(schema)
+  }
+
   server.register(userRoutes, { prefix: 'api/users' })
 
   try {
