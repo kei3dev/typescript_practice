@@ -1,9 +1,37 @@
-import fastify from 'fastify'
+import fastify, { FastifyReply, FastifyRequest } from 'fastify'
+import fjwt from '@fastify/jwt'
+import dotenv from 'dotenv'
 
-import { userSchemas } from './modules/user/user.schema'
 import userRoutes from './modules/user/user.route'
+import { userSchemas } from './modules/user/user.schema'
 
-const server = fastify()
+dotenv.config()
+
+const jwtSecret = process.env.JWT_SECRET
+if (!jwtSecret) {
+  console.error('JWT_SECRET is not set in .env file')
+  process.exit(1)
+}
+
+export const server = fastify()
+
+declare module 'fastify' {
+  export interface FastifyInstance {
+    authenticate: (request: FastifyRequest, reply: FastifyReply) => Promise<void>
+  }
+}
+
+server.register(fjwt, {
+  secret: jwtSecret,
+})
+
+server.decorate('authenticate', async (request: FastifyRequest, reply: FastifyReply) => {
+  try {
+    await request.jwtVerify()
+  } catch (e) {
+    return reply.send(e)
+  }
+})
 
 server.get('/', async (req, res) => {
   return { status: 'ok' }
