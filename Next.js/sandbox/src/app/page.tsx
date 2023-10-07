@@ -8,8 +8,11 @@ const HomePage = () => {
         minHeight: "screen",
         justifyContent: "center",
         alignItems: "center",
-        fontSize: "3xl",
+        fontSize: "xl",
         fontWeight: "bold",
+        md: {
+          fontSize: "3xl",
+        },
       })}
     >
       Hello 🐼!
