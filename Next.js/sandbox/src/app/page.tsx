@@ -1,13 +1,10 @@
-import { css } from "../../styled-system/css"
+import { center } from "../../styled-system/patterns"
 
 const HomePage = () => {
   return (
     <div
-      className={css({
-        display: "flex",
+      className={center({
         minHeight: "screen",
-        justifyContent: "center",
-        alignItems: "center",
         fontSize: "xl",
         fontWeight: "bold",
         md: {
