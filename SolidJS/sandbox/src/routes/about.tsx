@@ -13,6 +13,7 @@ const AboutPage = () => {
         <a
           href="https://solidjs.com"
           target="_blank"
+          rel="noreferrer noopener"
           class="text-sky-600 hover:underline"
         >
           solidjs.com
