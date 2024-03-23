@@ -9,7 +9,9 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 80,
-    "ignore": ["node_modules"]
+    "ignore": [
+      "node_modules"
+    ]
   },
   "javascript": {
     "formatter": {
@@ -23,12 +25,17 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "a11y": {
+        "useButtonType": "off"
+      },
       "correctness": {
         "noUndeclaredVariables": "error",
         "noUnusedVariables": "error",
         "noUnusedImports": "error"
       }
     },
-    "ignore": ["node_modules"]
+    "ignore": [
+      "node_modules"
+    ]
   }
 }
