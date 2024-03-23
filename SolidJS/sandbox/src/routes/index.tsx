@@ -1,5 +1,5 @@
-import { A } from "@solidjs/router";
-import { Counter } from "~/components/Counter";
+import { A } from "@solidjs/router"
+import { Counter } from "~/components/Counter"
 
 const HomePage = () => {
   return (
@@ -28,7 +28,7 @@ const HomePage = () => {
         </A>{" "}
       </p>
     </main>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

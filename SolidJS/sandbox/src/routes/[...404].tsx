@@ -1,4 +1,4 @@
-import { A } from "@solidjs/router";
+import { A } from "@solidjs/router"
 
 const NotFoundPage = () => {
   return (
@@ -28,7 +28,7 @@ const NotFoundPage = () => {
         </A>
       </p>
     </main>
-  );
-};
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage
