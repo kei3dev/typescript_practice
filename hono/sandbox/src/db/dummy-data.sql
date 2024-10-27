@@ -1,0 +1,1 @@
+INSERT INTO todos (todo) VALUES ("task1"), ("task2"), ("task3");
