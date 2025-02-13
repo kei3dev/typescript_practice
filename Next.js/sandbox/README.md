@@ -1,14 +1,6 @@
+# Sandbox
+
 This is sandbox project for testing and practicing
-
-## Getting Started
-
-```bash
-pnpm install
-```
-
-```bash
-pnpm dev
-```
 
 ## Tech Stack
 
@@ -20,3 +12,13 @@ pnpm dev
 - React Hook Form
 - Zod
 - Clerk
+
+## Getting Started
+
+```bash
+pnpm i
+```
+
+```bash
+pnpm dev
+```
