@@ -6,7 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "type": "tsc -noEmit -skipLibCheck",
+    "lint": "biome lint ./src",
+    "lint:fix": "biome lint ./src --write",
+    "format": "biome format ./src",
+    "format:fix": "biome format ./src --write",
+    "check:fix": "biome check ./src --write --unsafe"
   },
   "dependencies": {
     "next": "15.1.7",
