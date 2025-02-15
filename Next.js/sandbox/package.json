@@ -11,7 +11,7 @@
     "lint:fix": "biome lint ./src --write",
     "format": "biome format ./src",
     "format:fix": "biome format ./src --write",
-    "check:fix": "biome check ./src --write --unsafe"
+    "fix": "biome check ./src --write --unsafe"
   },
   "dependencies": {
     "next": "15.1.7",
